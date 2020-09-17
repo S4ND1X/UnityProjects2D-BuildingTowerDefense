@@ -22,8 +22,10 @@ public class BuildingManager : MonoBehaviour{
         }
     }
 
-    // Update is called once per frame
     private Vector3  GetMouseWorldPosition(){
+        /*Screen to world Point converts a screen point that would be given as pixels depending on your computer
+        * into coordinates corresponding to the "world" of the game
+        */
         Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPosition.z = 0f;
         return mouseWorldPosition;
