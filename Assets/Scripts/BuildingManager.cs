@@ -8,27 +8,20 @@ public class BuildingManager : MonoBehaviour{
     [SerializeField] private Camera mainCamera;
     private BuildingTypeListSO buildingTypeList;
     private BuildingTypeSO buildingType;
-
-    private void Start()
-    {
-        //Get the Scriptable Object that contains every building and getting default building type
+    private void Awake(){
         buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name);
         buildingType = buildingTypeList.getBuildingTypeList()[0];
     }
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
+    private void Update(){
+        if (Input.GetMouseButtonDown(0)){
             Instantiate(buildingType.getPrefab(), GetMouseWorldPosition(), Quaternion.identity);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
+        if (Input.GetKeyDown(KeyCode.Alpha1)){
             buildingType = buildingTypeList.getBuildingTypeList()[0];
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
+        else if (Input.GetKeyDown(KeyCode.Alpha2)){
             buildingType = buildingTypeList.getBuildingTypeList()[1];
         }
 

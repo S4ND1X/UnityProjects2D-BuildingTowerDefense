@@ -10,10 +10,12 @@ public class BuildingTypeSO : ScriptableObject{
 
 
     //Return a tranform reference to the prefab given
-    public Transform getPrefab()
-    {
+    public Transform getPrefab(){
         return prefab;
     }
+    public string getNameString(){
+        return nameString;
+    }
 
-    
+
 }
