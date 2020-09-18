@@ -6,20 +6,32 @@ public class BuildingManager : MonoBehaviour{
 
     //Cached references
     [SerializeField] private Camera mainCamera;
-
-    [SerializeField] private Transform pfWoodHarvester;
+    private BuildingTypeListSO buildingTypeList;
+    private BuildingTypeSO buildingType;
 
     private void Start()
     {
-        
+        //Get the Scriptable Object that contains every building and getting default building type
+        buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name);
+        buildingType = buildingTypeList.getBuildingTypeList()[0];
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(pfWoodHarvester, GetMouseWorldPosition(), Quaternion.identity);
+            Instantiate(buildingType.getPrefab(), GetMouseWorldPosition(), Quaternion.identity);
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            buildingType = buildingTypeList.getBuildingTypeList()[0];
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            buildingType = buildingTypeList.getBuildingTypeList()[1];
+        }
+
     }
 
     private Vector3  GetMouseWorldPosition(){

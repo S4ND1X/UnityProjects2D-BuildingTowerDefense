@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 519420031}
-  pfWoodHarvester: {fileID: 5377124762484597058, guid: 655b909ab53e428408198b48c922ecfd, type: 3}
+  buildingType: {fileID: 11400000, guid: fce0dee127d6ae54bab054e8cb74b460, type: 2}
 --- !u!4 &1971747124
 Transform:
   m_ObjectHideFlags: 0
